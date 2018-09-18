@@ -1,9 +1,6 @@
 import os
 from PIL import Image
 
-botPrefix = ("?", ">")
-settings = []
-adminList = []
 homeDir = os.getenv("LOCALAPPDATA") + "\\PyGame\\"
 spritePath = homeDir + "\\spirtes\\"
 spriteSource = spritePath + "tileset.png"
