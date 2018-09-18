@@ -39,11 +39,11 @@ def initialize():
 
         PIL.Image.new(RGBA, (32, 32))
 
-    print("Sprites", "Tile.WIDTH: " + Tile.WIDTH)
-    print("Sprites", "Tile.HEIGHT: " + Tile.HEIGHT)
+    print("Sprites", "Tile.WIDTH: " + "32")
+    print("Sprites", "Tile.HEIGHT: " + "32")
 
-    print("Sprites", "source.width: " + source.getWidth())
-    print("Sprites", "source.height: " + source.getHeight())
+    print("Sprites", "source.width: " + spriteImage.PIL.width())
+    print("Sprites", "source.height: " + spriteImage.PIL.height())
 
     print("Sprites", "sprite_x_count: " + sprite_x_count)
     print("Sprites", "sprite_y_count: " + sprite_y_count)
