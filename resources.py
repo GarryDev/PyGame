@@ -9,7 +9,7 @@ spritePath = homeDir + "\\spirtes\\"
 spriteSource = spritePath + "tileset.png"
 spriteImage = PIL.Image.load(spriteSource)
 
-def config(self):
+def config():
     global settings
 
     if not os.path.exists(homeDir):
@@ -22,7 +22,7 @@ def config(self):
     if not os.path.exists(spriteSource):
         print("The sprite image files does not exist. Did the installer fail?")
 
-def initialize(self):
+def initialize():
     sprite_count = 3072
 
     sprites = [None] * 3072
