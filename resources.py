@@ -2,7 +2,7 @@ import os
 from pyglet import image
 
 if __debug__:
-    FILE_NAME = "resouces: "
+    FILE_NAME = "resources: "
 
 HOME_DIR = os.getenv("LOCALAPPDATA") + "\\PyGame\\"
 SPRITE_PATH = HOME_DIR + "sprites\\"
