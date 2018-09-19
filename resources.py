@@ -1,47 +1,35 @@
 import os
-from PIL import Image
+from pyglet import image
 
-homeDir = os.getenv("LOCALAPPDATA") + "\\PyGame\\"
-spritePath = homeDir + "\\spirtes\\"
-spriteSource = spritePath + "tileset.png"
-spriteImage = PIL.Image.load(spriteSource)
+if __debug__:
+    FILE_NAME = "resouces: "
 
-def config():
-    global settings
+HOME_DIR = os.getenv("LOCALAPPDATA") + "\\PyGame\\"
+SPRITE_PATH = HOME_DIR + "sprites\\"
+SPRITE_SOURCE = SPRITE_PATH + "tile_set.png"
+TILE_WIDTH  = 32
+TILE_HEIGHT = 32
 
-    if not os.path.exists(homeDir):
-        os.mkdir(homeDir)
-
-    if not os.path.exists(spritePath):
-        print("The sprite path: " + spritePath + " does not exist. Creating it now.")
-        os.mkdir(spritePath)
-
-    if not os.path.exists(spriteSource):
-        print("The sprite image files does not exist. Did the installer fail?")
+sprite_grid = None
 
 def initialize():
-    sprite_count = 3072
+    global sprite_grid
 
-    sprites = [None] * 3072
+    if not os.path.exists(HOME_DIR):
+        os.mkdir("Folder missing " + HOME_DIR)
 
-    sprite_x_count = spriteImage.() / 32
-    sprite_y_count = spriteImage.getHeight() / 32
+    if not os.path.exists(SPRITE_PATH):
+        raise Exception("Folder missing " + SPRITE_PATH)
 
-        """ for (int y = 0 y < sprite_y_count y++) 
-            for (int x = 0 x < sprite_x_count x++) 
-                sprites[(y*sprite_x_count) + x] = Bitmap.createBitmap(source, x * Tile.WIDTH, y * Tile.HEIGHT, Tile.WIDTH, Tile.HEIGHT)
-        """
+    if not os.path.exists(SPRITE_PATH):
+        raise Exception("File missing " + SPRITE_SOURCE)
 
-    for y in range(0, sprite_count):
+    source = image.load(SPRITE_SOURCE)
+    sprite_grid = image.ImageGrid(source, 48, 64)
 
-        PIL.Image.new(RGBA, (32, 32))
-
-    print("Sprites", "Tile.WIDTH: " + "32")
-    print("Sprites", "Tile.HEIGHT: " + "32")
-
-    print("Sprites", "source.width: " + spriteImage.PIL.width())
-    print("Sprites", "source.height: " + spriteImage.PIL.height())
-
-    print("Sprites", "sprite_x_count: " + sprite_x_count)
-    print("Sprites", "sprite_y_count: " + sprite_y_count)
-
+    if __debug__:
+        print("{}Tile.WIDTH:       {}".format(FILE_NAME, TILE_WIDTH))
+        print("{}Tile.HEIGHT:      {}".format(FILE_NAME, TILE_WIDTH))
+        print("{}source.width:     {}".format(FILE_NAME, source.width))
+        print("{}source.height:    {}".format(FILE_NAME, source.height))
+        print("{}sprite_grid len:  {}".format(FILE_NAME, len(sprite_grid)))
