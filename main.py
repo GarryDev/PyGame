@@ -9,13 +9,16 @@ import chunk_gen
 WINDOW_WIDTH    = 800
 WINDOW_HEIGHT   = 600
 
-chunk_size = 32
+chunk_size = 256
 chunk_span = chunk_size//4
 
 x_offset = 0
 y_offset = 0
 x_center = (WINDOW_WIDTH //2) - ((chunk_span//2) * tile.WIDTH)
 y_center = (WINDOW_HEIGHT//2) - ((chunk_span//2) * tile.HEIGHT)
+
+zoom_level = 0
+
 
 # window subclass
 class MainWindow(pyglet.window.Window):
@@ -33,7 +36,6 @@ class MainWindow(pyglet.window.Window):
 
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
-
         global x_offset, y_offset
 
         x_offset += dx
